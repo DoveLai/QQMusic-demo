@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>QQmusic</title>
+        <meta charset="utf-8"/>
+        <script src="jquery-3.2.1.js"></script>
+        <style type="text/css">
+            body {
+                margin: 0;
+                padding: 0;
+                min-width: 1024px;
+                overflow-y: scroll;
+                font-size: 14px;
+                line-height: 1.5;
+            }
+            .section_inner {
+                padding-top: 90px;
+                margin: 0 30px;
+                max-width: 1200px;
+                position: relative;
+                min-width: 964px;
+            }
+            .header {
+              
+              font-family: poppin,'PingFang SC',Tahoma,Arial,\5FAE\8F6F\96C5\9ED1,sans-serif;
+              color: #333;
+              background-color: #fff;
+              
+              
+            }
+            .qqmusic_logo {
+                width: 170px;
+                height: 46px;
+            }
+            .title {
+              position: absolute;
+              left: 0;
+              top: 10px;
+              margin: 0;
+              padding: 0;
+              
+            }
+            .title a{
+               text-decoration: none;
+               color: black;
+            }
+            .nav {
+                position: absolute;
+                left: 198px;
+                top: 0;
+                margin: 0;
+
+            }
+            
+            .nav__item {
+                display: inline-block;
+                margin: 0px;
+                padding: 20px;
+            }
+            .nav__item a {
+                text-decoration: none;
+                color: black;
+            }
+            li {
+                list-style: none;  
+            }
+            .nav__link-current {
+                
+                background-color: #31c27c;
+                
+                
+            }
+            .nav__link-current a{
+                display: block;
+                color: white;
+                cursor: pointer;
+                text-align: center;
+                font-size: 18px;
+            }
+            .nav__item a:hover {
+                
+                color: #31c27c;
+            }
+            a {
+                text-decoration: none;
+                color: #333;
+
+            }
+            a:hover {
+                cursor: pointer;
+            }
+            
+            .subnav {
+                position: relative;
+                
+                height: 51px;
+                line-height: 51px;
+                padding-left: 230px;
+                min-width: 964px;
+            }
+            .subnav__item {
+                
+                float: left;
+                color: #c1c1c1;
+                margin-right: 47px;
+            }
+            .subnav__item a:hover{
+                color: #31c27c;
+            }
+            .search {
+                position: absolute;
+                right: 189px;
+                top: 10px;
+            }
+            .header-opt {
+                position: absolute;
+                right: 0px;
+                top: 20px;
+            }
+            /*.opt {
+                
+            }*/
+            button {
+                position: absolute;
+                top: 0;
+                right: 0;
+                border: 0 none ;
+                width: 38px;
+                height: 35px;
+                overflow: visible;
+                background: 0 0;
+                cursor: pointer;
+            }
+            .icon_search {
+                position: absolute;
+                right: 10px;
+                top: 33%;
+                background-image: url(icon_sprite.png);
+                background-position: 0 -40px;
+                right: 10px;
+                width: 20px;
+                height: 20px;
+                transition: right .15s ease-out;
+            }
+            .icon_text {
+                font: 0/0 a;
+            }
+            .search-input {
+                border: 1px solid #c9c9c9;
+                padding: 0 33px 0 11px;
+                line-height: 36px;
+                height: 36px;
+                margin-top: 0px;
+                position: relative;
+                border-radius: 3px;
+                background-color: #fff;
+                
+                transition: width .6s ease-out;
+            }
+            .search-input__input {
+                visibility: hidden;
+                
+                width: 0;
+                
+                border: 0 none;
+                background-color: #fff;
+                
+                transition: width .6s ease-out;
+            }
+            .search-input:hover .search-input__input {
+                visibility: visible;
+                width: 174px;
+                transition: width .6s ease-out, visibility .6s 1ms ease-out;
+            }
+            .mod_search_other {
+                max-height: 0;
+                visibility: hidden;
+                
+                
+                overflow: hidden;
+                position: absolute;
+                top: 63px;
+                left: 0;
+                background: #FFF;
+                width: 218px;
+                border: 1px solid #c9c9c9;
+                z-index: 8;
+                text-align: left;
+                font-size: 14px;
+                line-height: 36px;
+            }
+            .drop {
+                visibility: visible;
+                max-height: 800px;
+                transition: max-height .6s ease-out;
+
+            }
+            .drop:hover .search-input__input{
+                visibility: visible;
+                width: 174px;
+            }
+            .search_hot {
+                padding: 5px 0;
+            }
+            .search_hot-list {
+                margin: 0;
+                padding: 0;
+            }
+            .search_hot__tit {
+                display: none;
+            }
+
+        
+            .search_hot_link {
+                display: block;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis
+            }
+            .search_hot_link span{
+                cursor: pointer;
+
+            }
+            .search_hot__number {
+                color: #ff4222;
+                float: left;
+                width: 18px;
+            }
+            
+            .search_hot__name {
+                float: left;
+                color: #333;
+                max-width: 140px;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+            .search_hot__listen {
+                float: left;
+                color: #999;
+                font-size: 12px;
+            }
+            .search_hot__link js_smartbox_search js_left:hover {
+                background-color: #31c27c;
+
+
+            }
+            .search_hot__link js_smartbox_search js_left:hover span{
+                color: #f2f2f2;
+            }
+            .search_history {
+                padding: 5px 0;
+                border-bottom: 1px solid #f2f2f2;
+
+            }
+            ul,dl {
+                margin: 0;
+                padding: 0;
+            }
+            .search_history__tit {
+                padding-left: 11px;
+                color: #999;
+                position: relative;
+            }
+            dt {
+                margin: 0;
+                padding: 0;
+            }
+            .search_history__clear{
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 40px;
+                height: 36px;
+                font-size: 2px;
+                text-align: center;
+
+                
+            }
+            .icon_history_clear {
+                position: absolute;
+                top: 50%;
+                right: 11px;
+                margin-top: -8px;
+                width: 16px;
+                height: 16px;
+                background-position: -100px 0;
+                background-image: url(icon_sprite.png);
+            }
+            .icon_text {
+                font: 0/0 a;
+            }
+            .search_history_item {
+                position: relative;
+
+            }
+            .search_history__link {
+                padding-left: 11px;
+                display: block;
+                color: #333;
+                padding-right: 15px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+
+
+            }
+            .search_history__delete {
+                display: none;
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 33px;
+                height: 36px;
+                font-size: 2px;
+                text-align: center;
+                
+            }
+            .search_history__icon_delete {
+                position: absolute;
+                top: 50%;
+                right: 15px;
+                margin-top: -6px;
+                width: 12px;
+                height: 12px;
+                background-position: 0 -240px;
+                background-image: url(icon_sprite.png)
+
+
+
+            }
+            .opt a:hover{
+                color: #31c27c;
+
+            }
+            
+            </style>
+    </head>
+    <body>
+        <div class="header">
+            <div class="section_inner">
+                <h1 class="title">
+                    <a href="http://y.qq.com" >
+                    <img src="logo@2x.png" alt="QQ音乐" class="qqmusic_logo"/></a>
+                </h1>
+                <ul class="nav">
+                    <li class="nav__item" >
+                        <a >音乐馆</a>
+                    </li>
+                    <li class="nav__item">
+                        <a >我的音乐</a>
+                    </li>
+                    <li class="nav__item">
+                        <a>客户端</a>
+                    </li>
+                    <li class="nav__item">
+                        <a>音乐号</a>
+                    </li>
+                    <li class="nav__item">
+                        <a>VIP</a>
+                    </li>
+                </ul>
+              <!-- <div class="clear" style="clear:both"></div> -->
+            
+            
+                <div class="search">
+                    <div class="search-input">
+                        <input class="search-input__input" aria-label="请输入搜素内容" placeholder="中国新歌声第二季" type="text"/>
+                        <button class="search-btn">
+                            <i class="icon_search"><span class="icon_text">搜素</span></i>
+                        
+                        </button>
+                    </div>
+                    <div class="js_smartbox">
+                        <div class="mod_search_other" style>
+                            <div class="search_hot">
+                                <dl class="search_hot__list" aria-labelledy="search_hot__tit">
+                                    <dt class="search_hot__tit">热门搜索</dt>
+                                    <dd>
+						
+                                        <a href="javascript:;" class="search_hot__link js_smartbox_search js_left" data-name="无条件">
+                                            <span class="search_hot__number">1</span>
+                                            <span class="search_hot__name">无条件</span>
+                                            <span class="search_hot__listen">8.5万</span>
+                                        </a>
+						
+                                        <a href="javascript:;" class="search_hot__link js_smartbox_search js_left" data-name="双世宠妃">
+                                            <span class="search_hot__number">2</span>
+                                            <span class="search_hot__name">双世宠妃</span>
+                                            <span class="search_hot__listen">8.1万</span>
+                                        </a>
+						
+                                        <a href="javascript:;" class="search_hot__link js_smartbox_search js_left" data-name="从前慢">
+                                            <span class="search_hot__number">3</span>
+                                            <span class="search_hot__name">从前慢</span>
+                                            <span class="search_hot__listen">7.8万</span>
+                                        </a>
+						
+                                        <a href="javascript:;" class="search_hot__link js_smartbox_search js_left" data-name="王俊凯">
+                                            <span class="search_hot__number">4</span>
+                                            <span class="search_hot__name">王俊凯</span>
+                                            <span class="search_hot__listen">7万</span>
+                                        </a>
+						
+                                        <a href="javascript:;" class="search_hot__link js_smartbox_search js_left" data-name="李宇春">
+                                            <span class="search_hot__number">5</span>
+                                            <span class="search_hot__name">李宇春</span>
+                                            <span class="search_hot__listen">6.5万</span>
+                                        </a>
+						
+                                    </dd>   
+                
+                                </dl>
+                            </div>
+
+                        <div class="search_history">
+                            <dl class="search_history__list">
+                                <dt class="search_history__tit">搜索历史<a href="javascript:;" class="search_history__clear js_smartbox_delete_all"><i class="icon_history_clear"></i><span class="icon_txt">清空</span></a></dt>
+		
+                                <dd class="search_history__item">
+                                    <a href="javascript:;" class="search_history__link js_smartbox_search js_left" data-name="中国新歌声第二季">中国新歌声第二季</a>
+                                    <a href="javascript:;" class="search_history__delete js_smartbox_delete" data-name="中国新歌声第二季" title="删除"><i class="search_history__icon_delete"></i><span class="icon_txt">删除</span></a>
+                                </dd>
+	        
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div class="header-opt">
+                    <span class="opt">
+                        <a>登录</a>
+                        <a>开通绿钻豪华版</a>
+                    </span>
+                </div>
+                <ul class="subnav">
+                    <li class="subnav__item">
+                        <a>首页</a>
+                    </li>
+                    <li class="subnav__item">
+                        <a>歌手</a>
+                    </li>
+                    <li class="subnav__item">
+                        <a>专辑</a>
+                    </li>
+                    <li class="subnav__item">
+                        <a>排行榜</a>
+                    </li>
+                    <li class="subnav__item">
+                        <a>分类歌单</a>
+                    </li>
+                    <li class="subnav__item">
+                        <a>电台</a>
+                    </li>
+                    <li class="subnav__item">
+                        <a>MV</a>
+                    </li>
+                    <li class="subnav__item">
+                        <a>数字专辑</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <script type="text/javascript">
+            $('.nav__item').click(
+                function() {
+                    if (!($('.nav__item').hasClass('nav__link-current'))) {
+                      $(this).addClass('nav__link-current')
+                    } 
+                     else {
+                        $('.nav__item').removeClass('nav__link-current');
+                        $(this).addClass('nav__link-current');
+                    }
+                    
+                    
+                    //$('.nav_item').removeClass('nav__link-current')};
+                }
+            );
+            $('.search-input__input').click(
+                function(){
+                    if (!($('.mod_search_other').hasClass('drop'))) {
+                        $('.mod_search_other').addClass('drop');
+                    } else {
+                        $('.mod_search_other').removeClass('drop');
+                    }
+                        
+                   
+            });
+        </script>
+    </body>
+</html>
