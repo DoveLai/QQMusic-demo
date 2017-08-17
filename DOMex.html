@@ -7,18 +7,15 @@
         <style type="text/css">
            div {
                background-color: white;
-               border: solid black;
+               border: 10px solid black;
                
 
            }
-           div.hover {
+           div:hover {
                cursor: pointer;
-               border: solid red;
+               border: 10px solid red;
            }
-           div.click {
-               background-color: gray;
-
-           }
+           
         </style>
     </head>
     <body>
@@ -26,13 +23,15 @@
            DOM select
         </div>
         <script type="text/javascript">
-            $('div').hover(function() {
+            /*$('div').hover(function() {
                 $(this).toggleClass("hover");
                 
-            });
+            });*/
             $('div').click(
                 function() {
-                    $(this).toggleClass("click");
+                    var colors = ['red', 'blue', 'green', 'gray'];
+                    var randColor = colors[Math.floor(Math.random() * colors.length)];
+                    $(this).css('background-color',randColor);
                 },
     
             );

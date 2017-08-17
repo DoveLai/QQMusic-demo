@@ -212,7 +212,7 @@ $(function(){
    4、postmessage()
    5、cors
 */
-// http 协议 ​​​​​​状态码 100 200 300 400 500
+// http​请求头 回复头 协议 ​​​​​​状态码 100 200 300 400 500
 /*1	1xx消息
 2	2xx成功
 3	3xx重定向
@@ -224,5 +224,17 @@ $(function(){
 git init
 git status
 git add
-
+一个div元素 鼠标悬停变手形 黑色边框》悬停红色 背景白色》点击一次变色
 */
+$('div').hover(function() {
+    $(this).css('cursor','pointer');
+    $(this).css('border','solid red');
+});
+$('div').click(
+    function() {
+        $(this).css('background-color','gray');
+},
+    function() {
+        $(this).css('background-color','blue');
+    }
+);

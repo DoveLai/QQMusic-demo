@@ -15,6 +15,10 @@
             }
             .section_inner {
                 padding-top: 90px;
+
+            }
+            .section_inner, .main {
+                
                 margin: 0 30px;
                 max-width: 1200px;
                 position: relative;
@@ -202,7 +206,7 @@
             .search_hot {
                 padding: 5px 0;
             }
-            .search_hot-list {
+            .search_hot-list,h1,h2,h3,h4 {
                 margin: 0;
                 padding: 0;
             }
@@ -333,6 +337,164 @@
                 color: #31c27c;
 
             }
+            .main {
+                z-index: 2;
+            }
+            .data {
+                position: relative;
+                height: 250px;
+                padding-left: 305px;
+                margin-top: 40px;
+                margin-bottom: 35px;
+            }
+            .cover {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 250px;
+                height: 250px;
+            }
+            .data__photo {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            .cont {
+                padding-top: 13px;
+
+            }
+            .name {
+                height: 50px;
+                line-height: 50px;
+            }
+            .name_text {
+                font-size: 31px;
+                line-height: 50px;
+                font-weight: 400;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                max-width: 70%;
+                margin-right: 10px;
+            }
+            .singer {
+                height: 24px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                max-width: 90%;
+            }
+            .icon_singer {
+                float: left;
+                height:16px;
+                width: 16px;
+                background: url(icon_sprite.png) -20px -240px;
+                margin: 5px 7px 0 0 ;
+
+            }
+            .singer_text.js_singer {
+                font-size: 16px;
+            }
+            .info {
+                width: 450px;
+                overflow: hidden;
+                padding-top: 8px;
+            }
+            .info_item {
+                float: left;
+                line-height: 27px;
+                width: 166px;
+                margin-right: 10px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                font-size: 14px;
+            }
+            .actions {
+                position: absolute;
+                bottom: 23px;
+
+            }
+            .actions .btn_green {
+                text-align: center;
+                min-width: 122px;
+                border: 1px solid #31c27c;
+                background-color: #31c27c;
+                color: #fff;    
+                border-radius: 2px;
+                font-size: 14px;
+                margin-right: 6px;
+                padding: 0 23px;
+                height: 38px;
+                line-height: 38px;
+                display: inline-block;
+                white-space: nowrap;
+                box-sizing: border-box;
+                overflow: hidden;
+            }
+            .btn_green_icon_play {
+                width: 13px;
+                height: 16px;
+                background-position: -80px -220px;
+                background-image: url(icon_sprite.png);
+                display: inline-block;
+                margin-right: 6px;
+            }
+            .btn {
+                min-width: 122px;
+                text-align: center;
+                border: 1px solid #c9c9c9;
+                color: #333;
+                border-radius: 2px;
+                font-size: 14px;
+                margin-right: 6px;
+                padding: 0 23px;
+                height: 38px;
+                line-height: 38px;
+                display: inline-block;
+                white-space: nowrap;
+                box-sizing: border-box;
+                overflow: hidden;
+            }
+            .btn_icon_like {
+                width: 16px;
+                height: 16px;
+                background-position: -60px 0;
+                vertical-align: -4px;
+                background-image:url(icon_sprite.png);
+                display: inline-block;
+                margin-right: 6px;
+            }
+            .btn_icon_menu {
+                background-image: url(icon_sprite.png);
+                background-position: -20px -80px;
+                display: inline-block;
+                height: 16px;
+                width: 16px;
+                margin-right: 6px;
+            }
+            .detail_layout {
+                padding-right: 343px;
+                position: relative;
+
+            }
+            .detail_layout::after {
+                clear: both;
+            }
+            .detail_layout_main{
+                float: left;
+                width: 100%;
+                padding-bottom: 20px;
+            }
+            .detail_layout_other {
+                position: absolute;
+                right: 0;
+                width: 290px;
+                padding-bottom: 20px;
+
+
+            }
+
             
             </style>
     </head>
@@ -461,7 +623,217 @@
                 </ul>
             </div>
         </div>
-        
+        <div class="main">
+            <div class="data">
+                <span class="cover">
+                    <img src="cover.jpg" class="data__photo"/>
+                </span>
+                <div class="cont">
+                    <div class="name">
+                        <h1 class="name_text" title="左边遇上爱插曲">左边（《遇上爱》插曲）</h1>
+                    </div>
+                    <div class="singer">
+                        <i class="icon_singer"></i>
+                        <a class="singer_text js_singer">杨丞琳</a>
+                    </div>
+                    <ul class="info">
+                        <li class="info_item">
+                            专辑：
+                            <a class="js_album" title="遇上爱">遇上爱</a>
+                        </li>
+                        <li class="info_item js_lan">语种：国语</li>
+                        <li class="info_item js_genre">流派：Pop 流行</li>
+                        <li class="info_item js_company">
+                            发行公司：
+                            <a class="">索尼音乐</a>
+                        </li>
+                        <li class="info_item js_public_time">发行时间：2006-03-17</li>
+                    </ul>
+                    <div class="actions">
+                        <a class="btn_green js_all_play">
+                            <i class="btn_green_icon_play"></i>
+                            播放
+                        </a>
+                        <a class="btn js_all_like">
+                            <i class="btn_icon_like"></i>
+                            收藏
+                        </a>
+                        <a class="btn js_more">
+                            <i class="btn_icon_menu"></i>
+                            更多
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="detail_layout">
+                <div class="detail_layout_main">
+                    <div class="lyric">
+                        <div class="lyric_head">
+                            <h2 class="lyric_tit">歌词</h2>
+                            <a class="btn_copy" title="复制歌词"></a>
+                        </div>
+                        <div class="lyric_cont">
+                                    <p>
+                                    </p><p>
+                                    </p><p>
+                                    </p><p>
+                                    </p><p>
+                                    </p><p>左边 (《遇上爱》插曲) - 杨丞琳
+                                    </p><p>词：严云农
+                                    </p><p>曲：温奕哲
+                                    </p><p>编曲：屠颖
+                                    </p><p>制作人：陈美威
+                                    </p><p>
+                                    </p><p>总是忍不住寂寞掉下眼泪
+                                    </p><p>
+                                    </p><p>你才会给安慰
+                                    </p><p>
+                                    </p><p>担心短暂的晴天随时都可能
+                                    </p><p>
+                                    </p><p>被阴霾收回
+                                    </p><p>
+                                    </p><p>等待有机会最坏也最甜美
+                                    </p><p>
+                                    </p><p>我乐观却疲惫
+                                    </p><p>
+                                    </p><p>因为太怕失去你
+                                    </p><p>所以连快乐里都装满伤悲
+                                    </p><p>
+                                    </p><p>你不曾发觉
+                                    </p><p>
+                                    </p><p>你总是用右手牵着我
+                                    </p><p>
+                                    </p><p>但是心却跳动在左边
+                                    </p><p>
+                                    </p><p>你和我之间的遥远
+                                    </p><p>永远隔着亲切
+                                    </p><p>爱少的可怜
+                                    </p><p>
+                                    </p><p>伸出右手
+                                    </p><p>
+                                    </p><p>想陪着你向前走
+                                    </p><p>
+                                    </p><p>感受你爱我的心跳在左边
+                                    </p><p>
+                                    </p><p>那么深深爱你的我
+                                    </p><p>
+                                    </p><p>相信你会了解
+                                    </p><p>
+                                    </p><p>总在埋怨过你的冷漠之后
+                                    </p><p>
+                                    </p><p>又急着说抱歉
+                                    </p><p>
+                                    </p><p>仿佛向疏远的你
+                                    </p><p>
+                                    </p><p>乞求一点体贴
+                                    </p><p>
+                                    </p><p>都是我不对
+                                    </p><p>
+                                    </p><p>结果有可能最美也最可悲
+                                    </p><p>
+                                    </p><p>我做好了准备
+                                    </p><p>
+                                    </p><p>也许太自由的你
+                                    </p><p>心里面那个家
+                                    </p><p>
+                                    </p><p>谁也不能回
+                                    </p><p>你不曾发觉
+                                    </p><p>
+                                    </p><p>你总是用右手牵着我
+                                    </p><p>
+                                    </p><p>但是心却跳动在左边
+                                    </p><p>
+                                    </p><p>你和我之间的遥远
+                                    </p><p>
+                                    </p><p>永远隔着亲切
+                                    </p><p>爱少的可怜
+                                    </p><p>
+                                    </p><p>伸出右手 想陪着你向前走
+                                    </p><p>
+                                    </p><p>感受你爱我的心跳在左边
+                                    </p><p>
+                                    </p><p>那么深深爱你的我
+                                    </p><p>
+                                    </p><p>相信你会了解
+                                    </p><p>
+                                    </p><p>我一直相信总有一天
+                                    </p><p>
+                                    </p><p>你会用左手牵着我走向明天
+                                    </p><p>
+                                    </p><p>未来很遥远却会实现
+                                    </p><p>
+                                    </p><p>心在同一边就能够听见
+                                    </p><p>
+                                    </p><p>你说的那句
+                                    </p><p>
+                                    </p><p>我爱你
+                                    </p><p>
+                                    </p><p>你不曾发觉
+                                    </p><p>
+                                    </p><p>你总是用右手牵着我
+                                    </p><p>
+                                    </p><p>但是你心却跳动在左边
+                                    </p><p>
+                                    </p><p>你和我之间的遥远
+                                    </p><p>
+                                    </p><p>永远隔着亲切
+                                    </p><p>爱少的可怜
+                                    </p><p>
+                                    </p><p>伸出右手
+                                    </p><p>
+                                    </p><p>想陪着你向前走
+                                    </p><p>
+                                    </p><p>感受你爱我的心跳在左边
+                                    </p><p>
+                                    </p><p>那么深深爱你的我
+                                    </p><p>
+                                    </p><p>你一定看的见</p>
+                        </div>
+                    </div>
+                    
+
+                </div>
+                <div class="detail_layout_other">
+                        <div class="about">
+                                <h3 class="about_tit">简介</h3>
+                                <div class="about_cont">杨丞琳的首张专辑</div>
+                                <a class="about_more">［更多］</a>
+                            </div>
+                            <div class="other_part">
+                                <h3 class="other_part_tit">包含此单曲的热门歌单</h3>
+                                <div class="playlist">
+                                    <ul class="playlist_list">
+                                        <li class="playlist_item">
+                                            <div class="playlist_item_box">
+                                                <div class="playlist_cover">
+                                                    <a class="js_playlist">
+                                                        <img class="playlist_pic"/>
+                                                    </a>
+                                                </div>
+                                                <h4 class="playlist_tit">
+                                                    <span class="playlist_tit_txt">
+                                                        <a class="js_playlist">2013不舍得删的华语
+                                                        </a>
+                                                    </span>
+                                                </h4>
+                                                <div class="playlist_author">
+                                                    "2016-04-06"
+                                                </div>
+                                            </div>
+
+                                        </li>
+                                        <li class="playlist_item"></li>
+                                        <li class="playlist_item"></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                            <div class="other_part" id="song_mv"></div>
+                </div>
+
+            </div>
+
+        </div>
         <script type="text/javascript">
             $('.nav__item').click(
                 function() {
