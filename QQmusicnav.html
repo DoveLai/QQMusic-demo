@@ -206,7 +206,7 @@
             .search_hot {
                 padding: 5px 0;
             }
-            .search_hot-list,h1,h2,h3,h4 {
+            .search_hot-list,h1,h2,h3,h4,p {
                 margin: 0;
                 padding: 0;
             }
@@ -257,7 +257,7 @@
                 border-bottom: 1px solid #f2f2f2;
 
             }
-            ul,dl {
+            ul,dl,input,td,th {
                 margin: 0;
                 padding: 0;
             }
@@ -353,6 +353,19 @@
                 top: 0;
                 width: 250px;
                 height: 250px;
+            }
+            .cover_icon_play {
+                background-image: url(cover_play.png);
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 70px;
+                height: 70px;
+                opacity: 0;
+                transform: scale(.7);
+                transition-property: opacity, transform;
+                transition-duration: .5s;
+                zoom: 1;
             }
             .data__photo {
                 width: 100%;
@@ -482,20 +495,123 @@
                 clear: both;
             }
             .detail_layout_main{
-                float: left;
+                display: inline-block;
+
                 width: 100%;
                 padding-bottom: 20px;
             }
+            .lyric_hd {
+                line-height: 46px;
+            }
+            .lyric_tit {
+                display: inline-block;
+                font-size: 20px;
+                margin-right: 10px;
+                font-weight: 400;
+            }
+            .btn_copy {
+                display: inline-block;
+                width: 16px;
+                height: 16px;
+                background-image: url(icon_sprite.png);
+                background-position: -100px -40px;
+                margin-top: 13px;
+            }
+            .icon_text {
+                font: 0/0 a;
+            }
             .detail_layout_other {
                 position: absolute;
+                top: 0;
                 right: 0;
                 width: 290px;
                 padding-bottom: 20px;
 
 
             }
+            .about {
+                line-height: 22px;
+                margin-bottom: 25px;
+            }
+            .about_tit {
+                font-size: 20px;
+                font-weight: 400;
+                line-height: 46px;
+            }
+            .about_cont {
+                max-height: 88px;
+                overflow: hidden;
+            }
+            .about_more {
+                margin-right: 10px;
+            }
+            .other_part {
+                margin-bottom: 10px;
+                overflow: hidden;
+            }
+            .other_part_tit {
+                font-size:20px;
+                font-weight: 400;
+                line-height: 46px;
+            }
 
+            .playlist {
+                overflow: hidden;
+            }
+            .playlist_list {
+                margin-right: -20px;
+            }
+            .playlist_item {
+                width: 33.3333%;
+                padding-bottom: 14px;
+            }
+            .playlist_item_box {
+                position: relative;
+                margin-right: 20px;
+            }
+            .playlist_pic {
+                transform: none;
+                transition: none;
+                height: 83.3px;
+            }
             
+            .lyric_cont {
+                font-size: 14px;
+                line-height: 26px;
+            }
+            .mv_list_item_box {
+                position: relative;
+                margin-right:0;
+            }
+            .mv_list.cover.js_mv {
+                position: relative;
+                padding-top:56%;
+            }
+            .mv_list_pic {
+                height: 164px;
+                transform: scale(1);
+                transition: transform .75s;
+            }
+            .btn_bottom_top {
+                bottom: 142px;
+                background-position: 0 -120px;
+            }
+            .btn_bottom_top, .btn_bottom_feedback, .btn_bottom_player {
+                position: fixed;
+                right: 40px;
+                width: 50px;
+                height: 50px;
+                background-image: url(icon_sprite.png);
+                z-index: 4;
+            }
+            .btn_bottom_feedback {
+                bottom: 91px;
+                background-position: -100px -120px;
+            }
+            .btn_bottom_player {
+                bottom: 40px;
+                background-position: -150px -280px;
+            }
             </style>
     </head>
     <body>
@@ -670,7 +786,9 @@
                     <div class="lyric">
                         <div class="lyric_head">
                             <h2 class="lyric_tit">歌词</h2>
-                            <a class="btn_copy" title="复制歌词"></a>
+                            <a class="btn_copy" title="复制歌词">
+                                <i class="icon_text">复制</i>
+                            </a>
                         </div>
                         <div class="lyric_cont">
                                     <p>
@@ -796,7 +914,11 @@
                 <div class="detail_layout_other">
                         <div class="about">
                                 <h3 class="about_tit">简介</h3>
-                                <div class="about_cont">杨丞琳的首张专辑</div>
+                                <div class="about_cont">杨丞琳的首张个人专辑《暧昧》狂销十万张为白金唱片，令Rainie成为2005年唱片圈
+                                    最闪亮的新人，更让她美梦成真，在「歌手」的身份上有了新的契机。为了庆祝第二张
+                                        专辑《遇上爱》的诞生，以及失而复得的歌手身份，Rainie决定把新专辑中的第一首单曲「庆祝」送给你，
+                                        Rainie相信因为有可爱的你，才有现在这个可爱的杨丞琳。Rainie邀你一起分享她的喜悦，一起庆祝快乐的时刻！
+                                    </div>
                                 <a class="about_more">［更多］</a>
                             </div>
                             <div class="other_part">
@@ -807,7 +929,7 @@
                                             <div class="playlist_item_box">
                                                 <div class="playlist_cover">
                                                     <a class="js_playlist">
-                                                        <img class="playlist_pic"/>
+                                                        <img class="playlist_pic" src="music_cover600.jpeg"/>
                                                     </a>
                                                 </div>
                                                 <h4 class="playlist_tit">
@@ -828,12 +950,53 @@
                                 </div>
 
                             </div>
-                            <div class="other_part" id="song_mv"></div>
+                            <div class="other_part" id="song_mv">
+                                <h3 class="other_part_tit">相关MV</h3>
+                                <div class="mv_list">
+                                    <div class="mv_list_item_box">
+                                        <a class="mv_list cover js_mv" >
+                                            <img class="mv_list_pic"src="mv_300.png" alt="左边"/>
+                                            <i class="cover_icon_play"></i>
+                                        </a>
+                                        <h3 class="mv_list_tit">
+                                            <a class="js_mv" title="左边">左边</a>
+                                        </h3>
+                                        <p class="mv_list_singer">
+                                            <a class="js_singer" title="杨丞琳">杨丞琳</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
                 </div>
 
             </div>
 
         </div>
+        <a class="btn_bottom_top">
+            <span class="icon_text">返回顶部</span>
+        </a>
+        <a class="btn_bottom_feedback"></a>
+        <a class="btn_bottom_player"></a>
+        <div class="bg_detail">
+            <i class="bg_detail_pic" style="background-image:url(//)"></i>
+        </div>
+        <div class="footer">
+            <div class="section_inner">
+                <div class="footer_info">
+                    <div class="footer_download"></div>
+                    <div class="footer_product"></div>
+                    <div class="footer_link"></div>
+                    <div class="footer_platform"></div>
+
+                </div>
+                <div class="footer_copyright">
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+
         <script type="text/javascript">
             $('.nav__item').click(
                 function() {
