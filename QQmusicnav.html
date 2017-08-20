@@ -612,6 +612,126 @@
                 bottom: 40px;
                 background-position: -150px -280px;
             }
+            .footer {
+                color: #999;
+                background-color: #333;
+                clear: both
+            }
+            .footer_info {
+                overflow: hidden;
+                border-bottom: 1px solid #353535;
+                position: relative;
+                padding-bottom: 45px; 
+            }
+            .footer_copyright {
+                text-align: center;
+                line-height: 28px;
+                padding: 24px 0;
+                font-size: 12px;
+            }
+            .footer_download {
+                position: absolute;
+                top: 0;
+                left: 10px;
+
+            }
+            .footer_tit {
+                font-size: 15px;
+                font-weight: 400;
+                padding: 0 0 46px;
+            }
+            .footer_download_list {
+                margin-left: -25px;
+            }
+            .footer_download_list_item {
+                display: inline-block;
+                text-align: center;
+                position: relative;
+            }
+            .footer a {
+                color: #999;
+            }
+            .icon_qm_android, .icon_qm_iphone, .icon_qm_kg, .icon_qm_mac, .icon_qm_pc, .icon_qm_qp, .icon_qm_ss {
+                margin-left: 25px;
+                margin-right: 25px;
+            }
+            .icon_qm_pc {
+                width: 37px;
+                background-position: -2px 0;
+            }
+            .icon_qm_android, .icon_qm_iphone, .icon_qm_kg, .icon_qm_mac, .icon_qm_pc, .icon_qm_qp, .icon_qm_ss {
+                display: block;
+                margin: 0 29px 12px;
+                height: 48px;
+                background-image: url(footer.png);
+            }
+            .icon_qm_mac {
+                width: 46px;
+                background-position: -92px 0;
+            }
+            .icon_qm_android {
+                width: 37px;
+                background-position: -190px 0;
+            }
+            .icon_qm_iphone {
+                width: 34px;
+                background-position: -279px 0;
+            }
+            .footer_product {
+                left: 41.5%;
+                position: absolute;
+                top: 0;
+                width: 304px;
+            }
+            .footer_product_list {
+                margin-left: -21px;
+            }
+            .footer_product_list_item {
+                text-indent: 20px;
+                text-align: center;
+                position: relative;
+                margin-right: 0;
+                display: inline-block;
+                margin-bottom: 18px;
+            }
+            .footer_platform {
+                margin: 230px 0 0 10px;
+            }
+            .footer_platform_list {
+                margin-left: -25px;
+            }
+            .footer_platform_list_item {
+                display: inline-block;
+                min-width: 100px;
+                margin: 0 5px 12px 0;
+                text-indent: 25px;
+            }
+            .footer_link {
+                width: 200px;
+                float: right;
+                padding-bottom: 57px;
+            }
+            .footer_link_list_item {
+                min-width: 100px;
+                margin-bottom: 12px;
+
+            }
+            .icon_qm_kg {
+                width: 41px;
+                background-position: -370px 0;
+            }
+            .icon_qm_ss {
+                width: 37px;
+                background-position: -463px 0;
+            }
+            .icon_qm_qp {
+                width: 40px;
+                background-position: -563px 0;
+
+            }
+            .icon_txt {
+                font: 0/0 a;
+            }
             </style>
     </head>
     <body>
@@ -973,26 +1093,140 @@
 
         </div>
         <a class="btn_bottom_top">
-            <span class="icon_text">返回顶部</span>
+            <span class="icon_text" style="display:none;">返回顶部</span>
         </a>
         <a class="btn_bottom_feedback"></a>
         <a class="btn_bottom_player"></a>
-        <div class="bg_detail">
+        <!--<div class="bg_detail">
             <i class="bg_detail_pic" style="background-image:url(//)"></i>
-        </div>
+        </div> -->
         <div class="footer">
-            <div class="section_inner">
+            <div class="section_inner" >
                 <div class="footer_info">
-                    <div class="footer_download"></div>
-                    <div class="footer_product"></div>
-                    <div class="footer_link"></div>
-                    <div class="footer_platform"></div>
+                    <div class="footer_download">
+                        <h3 class="footer_tit">下载QQ音乐客户端</h3>
+                        <ul class="footer_download_list">
+                            <li class="footer_download_list_item">
+                                <a class="js_footer_down">
+                                    <i class="icon_qm_pc">
+                                        <span class="icon_txt">QQ音乐</span>
+                                    </i>
+                                    PC版
+                                </a>
+
+                            </li>
+                            <li class="footer_download_list_item">
+                                <a class="js_footer_down">
+                                    <i class="icon_qm_mac">
+                                        <span class="icon_txt">QQ音乐</span>
+                                    </i>
+                                    mac版
+                                </a>
+                            </li>
+                            <li class="footer_download_list_item">
+                                <a class="js_footer_down">
+                                    <i class="icon_qm_android">
+                                        <span class="icon_txt">QQ音乐</span>
+                                    </i>
+                                    android版
+                                </a>
+                            </li>
+                            <li class="footer_download_list_item">
+                                <a class="js_footer_down">
+                                    <i class="icon_qm_iphone">
+                                        <span class="icon_txt">QQ音乐</span>
+                                    </i>
+                                    iPhone版
+                                </a>
+                            </li>
+                        </ul>
+                        
+                    </div>
+                    <div class="footer_product">
+                        <h3 class="footer_tit">特色产品</h3>
+                        <ul class="footer_product_list">
+                            <li class="footer_product_list_item">
+                                <a class="other_link">
+                                    <i class="icon_qm_kg"></i>
+                                    全民K歌
+                                </a>
+                            </li>
+                            <li class="footer_product_list_item">
+                                <a class="other_link">
+                                    <i class="icon_qm_ss"></i>
+                                    Super Sound
+                                </a>
+                            </li>
+                            <li class="footer_product_list_item">
+                                <a class="other_link">
+                                    <i class="icon_qm_qp"></i>
+                                    QPlay
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer_link">
+                        <h3 class="footer_tit">合作链接</h3>
+                        <ul class="footer_link_list">
+                            <li class="footer_link_list_item">
+                                <a class="js_other_link">CJ E&M</a>
+                            </li>
+                            <li class="footer_link_list_item">
+                                <a class="js_other_link">手机QQ空间</a>
+                            </li>
+                            <li class="footer_link_list_item">
+                                <a class="js_other_link">腾讯社交广告</a>
+                            </li>
+                            <li class="footer_link_list_item">
+                                <a class="js_other_link">QQ浏览器</a>
+                            </li>
+                            <li class="footer_link_list_item">
+                                <a class="js_other_link">腾讯云</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer_platform">
+                        <h3 class="footer_tit">开放平台</h3>
+                        <ul class="footer_platform_list">
+                            <li class="footer_platform_list_item">
+                                <a class="js_other_link">腾讯音乐人平台</a>
+                            </li>
+                            <li class="footer_platform_list_item">
+                                <a class="js_other_link">音乐号认证</a>
+                            </li>
+                            <li class="footer_platform_list_item">
+                                <a class="js_other_link">上传视频</a>
+                            </li>
+                            <li class="footer_platform_list_item">
+                                <a class="js_other_link">上传音频</a>
+                            </li>
+                        </ul>
+                    </div>
 
                 </div>
                 <div class="footer_copyright">
-                    <p></p>
-                    <p></p>
-                    <p></p>
+                    <p>
+                        <a>关于腾讯</a>
+                         |
+                        <a>About Tencent</a>
+                         |
+                        <a>服务条款</a>
+                         |
+                        <a>用户服务协议</a>
+                         |
+                        <a>网站导航</a>
+                    </p>
+                    <p>
+                        Copyright © 1998 - 2017
+                        <a>
+                            All rights reserved.
+                        </a>
+                    </p>
+                    <p>
+                        腾讯公司
+                        <a>版权所有</a>
+                        <a>腾讯网络文化许可证</a>
+                    </p>
                 </div>
             </div>
         </div>
@@ -1022,6 +1256,11 @@
                         
                    
             });
+            $('.btn_bottom_top').click(
+                function() {
+                    window.scrollTo(0,0);
+                }
+            )
         </script>
     </body>
 </html>
