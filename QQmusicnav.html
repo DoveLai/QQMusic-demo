@@ -74,14 +74,16 @@
                 
                 
             }
-            .nav__link-current a{
+            .nav__item.nav__link-current a{
                 display: block;
                 color: white;
                 cursor: pointer;
                 text-align: center;
                 font-size: 18px;
             }
-            .nav__item a:hover {
+            
+
+            .nav__item:hover a {
                 
                 color: #31c27c;
             }
@@ -171,7 +173,7 @@
                 
                 transition: width .6s ease-out;
             }
-            .search-input:hover .search-input__input {
+            .search:hover .search-input__input {
                 visibility: visible;
                 width: 174px;
                 transition: width .6s ease-out, visibility .6s 1ms ease-out;
@@ -179,11 +181,11 @@
             .mod_search_other {
                 max-height: 0;
                 visibility: hidden;
-                
+                transition: max-height .6s ease-out,visibility 1ms .6s;
                 
                 overflow: hidden;
                 position: absolute;
-                top: 63px;
+                top: 37px;
                 left: 0;
                 background: #FFF;
                 width: 218px;
@@ -232,7 +234,7 @@
             }
             
             .search_hot__name {
-                float: left;
+                
                 color: #333;
                 max-width: 140px;
                 overflow: hidden;
@@ -240,16 +242,19 @@
                 text-overflow: ellipsis;
             }
             .search_hot__listen {
-                float: left;
+                float: right;
                 color: #999;
                 font-size: 12px;
             }
-            .search_hot__link js_smartbox_search js_left:hover {
+            .search_hot__link.js_smartbox_search.js_left {
+                display: block;
+            }
+            .search_hot__link.js_smartbox_search.js_left:hover {
                 background-color: #31c27c;
 
 
             }
-            .search_hot__link js_smartbox_search js_left:hover span{
+            .search_hot__link.js_smartbox_search.js_left:hover span{
                 color: #f2f2f2;
             }
             .search_history {
@@ -257,7 +262,7 @@
                 border-bottom: 1px solid #f2f2f2;
 
             }
-            ul,dl,input,td,th {
+            ul,dl,input,td,th,dd {
                 margin: 0;
                 padding: 0;
             }
@@ -529,6 +534,9 @@
 
 
             }
+            .about a:hover {
+                color: #31c27c;
+            }
             .about {
                 line-height: 22px;
                 margin-bottom: 25px;
@@ -732,6 +740,12 @@
             .icon_txt {
                 font: 0/0 a;
             }
+            .info a:hover {
+                color: #31c27c;
+            }
+            .js_playlist a:hover{
+                color: #31c27c;
+            }
             </style>
     </head>
     <body>
@@ -742,7 +756,7 @@
                     <img src="logo@2x.png" alt="QQ音乐" class="qqmusic_logo"/></a>
                 </h1>
                 <ul class="nav">
-                    <li class="nav__item" >
+                    <li class="nav__item nav__link-current">
                         <a >音乐馆</a>
                     </li>
                     <li class="nav__item">
@@ -1233,14 +1247,13 @@
 
         <script type="text/javascript">
             $('.nav__item').click(
-                function() {
-                    if (!($('.nav__item').hasClass('nav__link-current'))) {
-                      $(this).addClass('nav__link-current')
-                    } 
-                     else {
-                        $('.nav__item').removeClass('nav__link-current');
-                        $(this).addClass('nav__link-current');
-                    }
+                function(event) {
+                    console.log(event);
+                    
+                    $('.nav__item').removeClass('nav__link-current'); //去除所有数组
+                       
+                    $(this).addClass('nav__link-current');
+                    
                     
                     
                     //$('.nav_item').removeClass('nav__link-current')};
@@ -1248,14 +1261,16 @@
             );
             $('.search-input__input').click(
                 function(){
-                    if (!($('.mod_search_other').hasClass('drop'))) {
-                        $('.mod_search_other').addClass('drop');
-                    } else {
-                        $('.mod_search_other').removeClass('drop');
-                    }
+                    //$('.mod_search_other').removeClass('drop');
+                    $('.mod_search_other').addClass('drop');
                         
                    
             });
+            $('.search').mouseleave(
+                function() {
+                    $('.mod_search_other').removeClass('drop');
+                }
+            )
             $('.btn_bottom_top').click(
                 function() {
                     window.scrollTo(0,0);
