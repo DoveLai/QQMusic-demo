@@ -83,7 +83,7 @@
             }
             
 
-            .nav__item:hover a {
+            .nav__link:hover {
                 
                 color: #31c27c;
             }
@@ -116,16 +116,30 @@
             .search {
                 position: absolute;
                 right: 189px;
-                top: 10px;
+                top: 17px;
             }
             .header-opt {
                 position: absolute;
                 right: 0px;
-                top: 20px;
+                top: 0px;
+                height:90px;
+                line-height: 90px;
+
             }
-            /*.opt {
-                
-            }*/
+            .login__link.js_login {
+                position: relative;
+                top: -13px;
+                font-size: 16px;
+                display: inline-block;
+                width: 38px;
+                margin-right: 10px;
+                text-align: center;
+            }
+            .opt {
+                display:inline-block;
+                height: 90px;
+                line-height: 90px;   
+            }
             button {
                 position: absolute;
                 top: 0;
@@ -359,14 +373,14 @@
                 width: 250px;
                 height: 250px;
             }
-            .cover_icon_play {
+            .cover_icon_play:hover,.cover_icon_play {
                 background-image: url(cover_play.png);
                 position: absolute;
-                top: 50%;
-                left: 50%;
+                top: 36%;
+                left: 40%;
                 width: 70px;
                 height: 70px;
-                opacity: 0;
+                opacity: 1;
                 transform: scale(.7);
                 transition-property: opacity, transform;
                 transition-duration: .5s;
@@ -433,7 +447,7 @@
                 bottom: 23px;
 
             }
-            .actions .btn_green {
+            .btn_green {
                 text-align: center;
                 min-width: 122px;
                 border: 1px solid #31c27c;
@@ -473,6 +487,10 @@
                 white-space: nowrap;
                 box-sizing: border-box;
                 overflow: hidden;
+            }
+            .btn:hover{
+                background-color: #ededed;
+                color: #333;
             }
             .btn_icon_like {
                 width: 16px;
@@ -566,6 +584,26 @@
             .playlist {
                 overflow: hidden;
             }
+            .playlist_tit {
+                line-height: 1.5;
+                margin-bottom: 0;
+                overflow: hidden;
+            }
+            .playlist_tit_txt {
+                display:inline-block;
+                max-width: 100%;
+                font-weight: 400;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            .playlist_author {
+                color: #999;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                height: 22px;
+            }
             .playlist_list {
                 margin-right: -20px;
             }
@@ -576,6 +614,12 @@
             .playlist_item_box {
                 position: relative;
                 margin-right: 20px;
+                font-size: 12px;
+            }
+            .playlist_item_box a:hover{
+                color: #31c27c;
+                
+
             }
             .playlist_pic {
                 transform: none;
@@ -600,9 +644,30 @@
                 transform: scale(1);
                 transition: transform .75s;
             }
+            .mv_list_pic:hover {
+                transform: scale(1.07);
+                transition: transform .75s cubic-bezier(0,1,.75,1);
+            }
+            .mv_list_tit {
+                line-height: 1.5;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+
+            }
+            .js_mv:hover{
+                color: #31c27c;
+                
+            }
+            .js_singer:hover {
+                color: #31c27c;
+            }
             .btn_bottom_top {
                 bottom: 142px;
                 background-position: 0 -120px;
+            }
+            .btn_bottom_top:hover{
+                color:#31c27c;
             }
             .btn_bottom_top, .btn_bottom_feedback, .btn_bottom_player {
                 position: fixed;
@@ -740,11 +805,62 @@
             .icon_txt {
                 font: 0/0 a;
             }
-            .info a:hover {
+            .a:hover {
                 color: #31c27c;
             }
             .js_playlist a:hover{
                 color: #31c27c;
+            }
+            .btn_green.top_login__btn_vip.js_openvip {
+                background-color: #31c27c;
+                color: white;
+                line-height: 39px;
+                margin-top: 18px;
+                padding: 0 9px;
+                margin-left: 10px;
+                margin-right: 0;
+                font-size: 13px;
+            }
+            .btn_green:hover {
+                background-color: #2caf6f;
+                border-color: #2caf6f;
+                color: #fff;
+            }
+            .popup_data_detail {
+                top: 86px;
+                display: none;
+                position: absolute;
+                
+                right: 303px;
+                width: 580px;
+                background: #fff;
+                box-shadow: 0 0 4px rgba(0,0,0,.35);
+                border-radius: 4px;
+                border: 1px solid #ddd;
+                z-index: 99;
+            }
+            .popup_data_detail_cont {
+                max-height: 400px;
+                font-size: 14px;
+                line-height: 22px;
+                margin: 30px 5px 30px 10px;
+                overflow-y: auto;
+            }
+            .popup_data_detail_tit {
+                margin: 0 24px 0 19px;
+                line-height: 22px;
+                font-size: 20px;
+                font-weight: 400;
+                padding: 0 0 20px;
+            }
+            .popup_data_detail_arrow {
+                background-position: 0 0;
+                position: absolute;
+                top: 50px;
+                right: -11px;
+                width: 11px;
+                height: 17px;
+                background: url(popup_arrow.png) 0 -17px no-repeat;
             }
             </style>
     </head>
@@ -760,16 +876,16 @@
                         <a >音乐馆</a>
                     </li>
                     <li class="nav__item">
-                        <a >我的音乐</a>
+                        <a class="nav__link">我的音乐</a>
                     </li>
                     <li class="nav__item">
-                        <a>客户端</a>
+                        <a class="nav__link">客户端</a>
                     </li>
                     <li class="nav__item">
-                        <a>音乐号</a>
+                        <a class="nav__link">音乐号</a>
                     </li>
                     <li class="nav__item">
-                        <a>VIP</a>
+                        <a class="nav__link">VIP</a>
                     </li>
                 </ul>
               <!-- <div class="clear" style="clear:both"></div> -->
@@ -841,8 +957,8 @@
             </div>
                 <div class="header-opt">
                     <span class="opt">
-                        <a>登录</a>
-                        <a>开通绿钻豪华版</a>
+                        <a class="login__link js_login">登录</a>
+                        <a class="btn_green top_login__btn_vip js_openvip">开通绿钻豪华版</a>
                     </span>
                 </div>
                 <ul class="subnav">
@@ -1102,7 +1218,19 @@
                                 </div>
                             </div>
                 </div>
-
+                <div class="popup_data_detail">
+                    <div class="popup_data_detail_cont">
+                        <h3 class="popup_data_detail_tit">专辑简介</h3>
+                        <p>杨丞琳的首张个人专辑《暧昧》狂销十万张为白金唱片，
+                            令Rainie成为2005年唱片圈最闪亮的新人，
+                            更让她美梦成真，在「歌手」的身份上有了新的契机。为了庆祝第二张</p>
+                        <p>专辑《遇上爱》的诞生，以及失而复得的歌手身份，
+                            Rainie决定把新专辑中的第一首单曲「庆祝」送给你，
+                            Rainie相信因为有可爱的你，才有现在这个可爱的杨丞琳。
+                            Rainie邀你一起分享她的喜悦，一起庆祝快乐的时刻！</p>
+                    </div>
+                    <i class="popup_data_detail_arrow"></i>
+                </div>
             </div>
 
         </div>
@@ -1269,6 +1397,12 @@
             $('.search').mouseleave(
                 function() {
                     $('.mod_search_other').removeClass('drop');
+                }
+            )
+            $('.about_more').click(
+                function() {
+                    
+                    $('.popup_data_detail').show();
                 }
             )
             $('.btn_bottom_top').click(
