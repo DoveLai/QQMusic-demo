@@ -224,6 +224,9 @@ $(function(){
 git init
 git status
 git add
+git commit -m ""
+git pull
+git push
 一个div元素 鼠标悬停变手形 黑色边框》悬停红色 背景白色》点击一次变色
 */
 $('div').hover(function() {
