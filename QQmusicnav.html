@@ -3,7 +3,7 @@
     <head>
         <title>QQmusic</title>
         <meta charset="utf-8"/>
-        <script src="jquery-3.2.1.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
         <style type="text/css">
             body {
                 margin: 0;
@@ -1376,7 +1376,7 @@
         <script type="text/javascript">
             $('.nav__item').click(
                 function(event) {
-                    console.log(event);
+                    //console.log(event);
                     
                     $('.nav__item').removeClass('nav__link-current'); //去除所有数组
                        
@@ -1403,6 +1403,11 @@
                 function() {
                     
                     $('.popup_data_detail').show();
+                }
+            )
+            $('.popup_data_detail').mouseleave(
+                function() {
+                    $(this).hide();
                 }
             )
             $('.btn_bottom_top').click(
